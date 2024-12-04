@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keranjang Belanja</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Keranjang Belanja</h1>
+    <a href="index.html" class="back-link">Kembali ke Menu</a>
+  </header>
+  <main>
+    <section id="cart">
+      <h2>Item dalam Keranjang</h2>
+      <ul id="cart-items"></ul>
+      <p id="total-price">Total Harga: Rp 0</p>
+      <form id="order-form" onsubmit="sendWhatsApp()">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required>
+        <label for="table">Tabel no:</label>
+        <input type="text" id="table" required>
+        <label for="phone">Nomor HP:</label>
+        <input type="tel" id="phone" required>
+        <button type="submit">Kirim Pesanan</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Kafe Zidane. All rights reserved.</p>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+</html>
