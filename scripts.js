@@ -11,6 +11,12 @@ function loadCart() {
     });
     updateCartUI();
   }
+
+  // Check if the cart is empty
+  if (cartItems.length === 0) {
+    // Redirect to index.html if the cart is empty
+    window.location.href = 'index.html';
+  }
 }
 
 let cartCount = 0;
@@ -45,15 +51,33 @@ function updateCartUI() {
     const li = document.createElement('li');
     li.textContent = `${item.name} - Rp ${item.price} x ${item.quantity}`;
     
-    const reduceButton = document.createElement('button');
-    reduceButton.textContent = 'Kurangi';
-    reduceButton.onclick = () => reduceItem(item.name);
+    // Create "+" button
+    const addButton = document.createElement('button');
+    addButton.textContent = '+';
+    addButton.onclick = () => addItem(item.name); // Function to add more of the item
 
+    // Create "-" button (previously "Kurangi")
+    const reduceButton = document.createElement('button');
+    reduceButton.textContent = '-';
+    reduceButton.onclick = () => reduceItem(item.name); // Function to reduce the item
+
+    li.appendChild(addButton);
     li.appendChild(reduceButton);
     cartItemsList.appendChild(li);
   });
 
   document.getElementById('total-price').textContent = `Total Harga: Rp ${totalPrice}`;
+}
+
+// New function to add more of the item
+function addItem(itemName) {
+  const existingItem = cartItems.find(item => item.name === itemName);
+  if (existingItem) {
+    existingItem.quantity++;
+    totalPrice += existingItem.price; // Add the price of one item
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Update localStorage
+    updateCartUI(); // Update the UI
+  }
 }
 
 function reduceItem(itemName) {
