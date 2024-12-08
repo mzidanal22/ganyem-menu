@@ -17,19 +17,19 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1, h2, h3, p {
     margin: 0;
-    font-size: 24px;
 }
 
 .cart-icon img {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
 }
 
 .logo-ganyem{
     width: 50px;
     height: 50px;
+    border-radius: 100px;
 }
 
 main {
@@ -136,6 +136,44 @@ footer p {
 .header-text h3{
     margin: 0;
  }
+
+ .cart-count-container {
+    position: relative;
+    display: inline-block; /* Allow positioning */
+    margin-right: 10px; /* Space between count and icon */
+}
+
+.cart-icon {
+    position: relative; /* Set position relative to allow absolute positioning of cart-count */
+}
+
+#cart-count {
+    background-color: red; /* Red background */
+    color: white; /* White text */
+    border-radius: 50%; /* Make it circular */
+    width: 25px; /* Set width */
+    height: 25px; /* Set height */
+    display: flex; /* Use flexbox to center text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: absolute; /* Position it above the cart icon */
+    top: -10px; /* Adjust as needed */
+    right: -10px; /* Adjust as needed */
+    font-size: 14px; /* Font size */
+}
+
+.alert-message {
+    background-color: #4CAF50; /* Warna latar belakang hijau */
+    color: white; /* Warna teks putih */
+    padding: 10px 20px; /* Ruang di dalam */
+    border-radius: 5px; /* Sudut melengkung */
+    position: fixed; /* Posisi tetap */
+    bottom: 20px; /* Jarak dari bawah */
+    right: 10px; /* Jarak dari kanan */
+    z-index: 1000; /* Pastikan di atas elemen lain */
+    opacity: 0; /* Mulai dengan transparan */
+    transition: opacity 0.5s ease; /* Transisi untuk efek muncul */
+}
 
 /* Responsive styles */
 @media (max-width: 768px) {

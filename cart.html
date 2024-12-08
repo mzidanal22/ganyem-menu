@@ -1,32 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keranjang Belanja</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Keranjang Belanja</title>
+    <style>
+        .alert-confirmation {
+            background-color: #fff; /* White background for the card */
+            color: #333; /* Dark text */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+        .alert-buttons {
+            margin-top: 15px;
+        }
+        .alert-buttons button {
+            background-color: #ffcc00; /* Yellow background */
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .alert-buttons button:hover {
+            background-color: #e6b800; /* Darker yellow on hover */
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Keranjang Belanja</h1>
-    <a href="index.html" class="back-link">Kembali ke Menu</a>
-  </header>
-  <main>
-    <section id="cart">
-      <h2>Item dalam Keranjang</h2>
-      <ul id="cart-items"></ul>
-      <p id="total-price">Total Harga: Rp 0</p>
-      <form id="order-form" onsubmit="sendWhatsApp()">
-        <label for="name">Nama:</label>
-        <input type="text" id="name" required>
-        <label for="table">Tabel no:</label>
-        <input type="text" id="table" required>
-        <label for="phone">Nomor HP:</label>
-        <input type="tel" id="phone" required>
-        <button type="submit">Kirim Pesanan</button>
-      </form>
-    </section>
-  </main>
-  <script src="scripts.js"></script>
+    <header>
+        <h1>Keranjang Belanja</h1>
+        <a href="#" class="back-link" id="back-link">Kembali ke Menu</a>
+    </header>
+    <main>
+        <section id="cart">
+            <h2>Item dalam Keranjang</h2>
+            <div class="alert-confirmation" id="alert-confirmation">
+                Jika kamu kembali, pesananmu jadi 0. Apa kamu yakin?
+                <div class="alert-buttons">
+                    <button id="confirm-yes">Ya</button>
+                    <button id="confirm-no">Tidak</button>
+                </div>
+            </div>
+            <ul id="cart-items"></ul>
+            <p id="total-price">Total Harga: Rp 0</p>
+            <form id="order-form" onsubmit="sendWhatsApp()">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" required>
+                <label for="table">Tabel no:</label>
+                <input type="text" id="table" required>
+                <label for="phone">Nomor HP:</label>
+                <input type="tel" id="phone" required>
+                <button type="submit">Kirim Pesanan</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+    <script>
+        // Call loadCart when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+        });
+
+        // Function to show the alert confirmation
+        function showAlertConfirmation(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            const alertDiv = document.getElementById('alert-confirmation');
+            alertDiv.style.display = 'block'; // Show the alert
+        }
+
+        // Function to handle the confirmation
+        function handleConfirmation(continueNavigation) {
+            const alertDiv = document.getElementById('alert-confirmation');
+            if (continueNavigation) {
+                // Redirect to the menu page
+                window.location.href = 'index.html'; // Redirect to index.html
+            } else {
+                // Hide the alert
+                alertDiv.style.display = 'none';
+            }
+        }
+
+        // Add event listener to the back link
+        document.getElementById('back-link').addEventListener('click', showAlertConfirmation);
+
+        // Add event listeners for the confirmation buttons
+        document.getElementById('confirm-yes').addEventListener('click', function() {
+            handleConfirmation(true); // User chose to continue
+        });
+
+        document.getElementById('confirm-no').addEventListener('click', function() {
+            handleConfirmation(false); // User chose not to continue
+        });
+    </script>
 </body>
 </html>
