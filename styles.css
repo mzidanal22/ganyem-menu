@@ -43,10 +43,13 @@ main {
     padding: 20px;
 }
 
+h3{
+    font-size: 16px;
+}
+
 h2 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #4CAF50;
 }
 
 .menu-container {
