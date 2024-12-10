@@ -16,6 +16,8 @@ header {
     padding: 15px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     min-height: 75px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius:15px;
 }
 
 h1, h2, h3, p {
@@ -51,6 +53,7 @@ h3{
 h2 {
     font-size: 20px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .menu-container {
@@ -180,6 +183,7 @@ footer p {
     opacity: 0; /* Mulai dengan transparan */
     transition: opacity 0.5s ease; /* Transisi untuk efek muncul */
 }
+
 
 /* Responsive styles */
 @media (max-width: 768px) {
