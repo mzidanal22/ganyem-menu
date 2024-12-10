@@ -129,6 +129,7 @@ function sendWhatsApp() {
     const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     message += `Total harga: Rp ${totalPrice}`;
 
+    const phone = '6281234567890'; // Replace with the target phone number
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 
