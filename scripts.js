@@ -66,6 +66,8 @@ function loadCart() {
     const totalPriceElement = document.getElementById('total-price');
     let totalPrice = 0;
 
+    // Clear existing items in the cart display
+    cartItemsList.innerHTML = '';
 
     // Loop through the cart items and display them
     cartItems.forEach(item => {
