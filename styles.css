@@ -59,6 +59,7 @@ h2 {
     flex: 0 0 48%; /* Each item takes up about 48% of the container width */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     margin-bottom: 20px; /* Space between rows */
+    max-height: 310px;
 }
 
 #cart-items {
