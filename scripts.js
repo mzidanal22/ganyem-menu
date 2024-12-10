@@ -113,7 +113,6 @@ function decreaseQuantity(itemName) {
 }
 
 // Function to send order via WhatsApp
-// Function to send order via WhatsApp
 function sendWhatsApp() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const name = document.getElementById('name').value; // Get the name from the form
@@ -130,7 +129,7 @@ function sendWhatsApp() {
     message += `Total harga: Rp ${totalPrice}`;
 
     const phone = '6281234567890'; // Replace with the target phone number
-    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 
     // Clear the cart after sending the order
