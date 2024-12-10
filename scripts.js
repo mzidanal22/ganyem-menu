@@ -138,21 +138,3 @@ function sendWhatsApp() {
         window.location.href = 'index.html';
     }, 2000); // Redirect after 2 seconds (2000 milliseconds)
 }
-
-// Function to update the cart count display
-function updateCartCount() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-    document.getElementById('cart-count').innerText = cartCount;
-}
-
-// Function to initialize cart count on page load
-function initializeCartCount() {
-    updateCartCount();
-}
-
-// Call initializeCartCount when the page loads
-window.onload = function() {
-    loadCart();
-    initializeCartCount();
-};
