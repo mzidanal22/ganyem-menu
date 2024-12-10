@@ -158,6 +158,3 @@ window.onload = function() {
     loadCart();
     initializeCartCount();
 };
-
-const cartItemsList = document.getElementById('cart-items');
-console.log(cartItemsList); // This should not be null
