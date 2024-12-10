@@ -67,7 +67,7 @@ function loadCart() {
     let totalPrice = 0;
 
     // Clear existing items in the cart display
-    cartItemsList.innerHTML = '';
+    cartItemsList.innerHTML = '0';
 
     // Loop through the cart items and display them
     cartItems.forEach(item => {
