@@ -112,6 +112,27 @@ function decreaseQuantity(itemName) {
     }
 }
 
+// Function to update the cart count display
+function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById('cart-count').innerText = cartCount;
+}
+
+// Function to initialize cart count on page load
+function initializeCartCount() {
+    updateCartCount();
+}
+
+// Call initializeCartCount when the page loads
+window.onload = function() {
+    loadCart();
+    initializeCartCount();
+};
+
+const cartItemsList = document.getElementById('cart-items');
+console.log(cartItemsList); // This should not be null
+
 // Function to send order via WhatsApp
 function sendWhatsApp() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
